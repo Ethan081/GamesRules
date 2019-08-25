@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee7bc4a6-ba58-4c6c-bfb5-ea7cf097407a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/assets/css/main.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/games_rules/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/GamesRulesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GamesRulesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/games_rules/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/games_rules/index.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -167,7 +167,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1566722217987</updated>
-      <workItem from="1566722221307" duration="2750000" />
+      <workItem from="1566722221307" duration="3659000" />
     </task>
     <servers />
   </component>

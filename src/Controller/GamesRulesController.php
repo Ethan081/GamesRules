@@ -17,4 +17,11 @@ class GamesRulesController extends AbstractController
 
         ]);
     }
+
+    /**
+     * @Route("/games/12", name="games_show")
+     */
+    public function show(){
+        return $this->render('games_rules/show.html.twig');
+    }
 }

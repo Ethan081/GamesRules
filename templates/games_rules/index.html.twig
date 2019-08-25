@@ -17,7 +17,7 @@
     <section>
         <h1>derniere Regle de jeux ajoutees</h1>
         <article class="card-show">
-            {% for game in games %}
+            {% for game in games|slice(-4) %}
             <div class="card">
                 <img src="http://via.placeholder.com/100" alt="" class="resp">
                 <div class="container">

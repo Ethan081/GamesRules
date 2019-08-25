@@ -8,6 +8,7 @@ use App\Repository\GameRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class GameController extends AbstractController
@@ -26,16 +27,19 @@ class GameController extends AbstractController
     }
 
 
-// ---------------------Cree un nouveux Game en DB-----------------
-
+// ---------------------Cree et Edit un nouveux/anciens Game en DB-----------------
+//Je cree deux routes l'une pour cree un article et l'autre pour les editees grace a leur id.
     /**
      * @Route("/games/new", name="game_create")
+     * @Route("/games/{id}/edit", name="game_edit")
      */
-    public function create(Request $request, EntityManagerInterface $entityManager)
+    public function form(Game $game = null, Request $request, EntityManagerInterface $entityManager)
     {
-        $form = $this->createForm(GameType::class);
+//        Si c est un nouvelle article
 //        j 'instancie un l entite Game
-        $game = new Game();
+        if (!$game){
+            $game = new Game();
+        }
 
 //       J assigne a $form la creation d'un formumaire et je lui lie mon instance de class Game($game)
         $form = $this->createForm(GameType::class, $game);
@@ -55,11 +59,30 @@ class GameController extends AbstractController
 
         return $this->render('game/create_game.html.twig',
             [
-                'gameForm' => $form->createView()
+                'gameForm' => $form->createView(),
+                'editMode' => $game->getId() !== null
             ]);
     }
 
-//------------------------------------------------
+//-----------------------------------------------------------
+// ---------------------Supprimer Game en DB-----------------
+
+    /**
+     * @Route("/games/{id}/remove", name="game_remove")
+     */
+
+    public function gameRemove(EntityManagerInterface $entityManager, $id, GameRepository $gameRepository)
+    {
+        $game = $gameRepository->find($id);
+
+        $entityManager->remove($game);
+
+        $entityManager->flush();
+
+        return new Response('Le Jeux ' .$game->getTitle().' a bien ete supprime');
+    }
+
+//-----------------------------------------------------------
 
     /**
      * @Route("/games/{id}", name="games_show")

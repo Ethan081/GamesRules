@@ -16,7 +16,13 @@
             {{ form_row(gameForm.description, {'attr': {'placeholder': 'Description du jeux'}}) }}
             {{ form_row(gameForm.picture, {'attr': {'placeholder': 'Url de l\'image'}}) }}
 
-            <button type="submit" class="btn btn-success">Envoyer</button>
+            <button type="submit" class="btn btn-success">
+                {% if editMode %}
+                    Modifier
+                {% else %}
+                    Ajouter
+                {% endif %}
+            </button>
 
             {{ form_end(gameForm) }}
         </article>

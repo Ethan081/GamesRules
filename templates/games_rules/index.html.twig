@@ -7,8 +7,8 @@
         <h1>Quel regle de jeux cherchez-vous?</h1>
         <article>
             <div class="search">
-                <form action="" method="get">
-                    <input type="text" name="name">
+                <form action="{{ path('games_search') }}" method="get">
+                    <input type="text" name="title">
                     <button type="submit">Search</button>
                 </form>
             </div>
@@ -19,7 +19,7 @@
         <article class="card-show">
             {% for game in games|slice(-4) %}
             <div class="card">
-                <img src="http://via.placeholder.com/100" alt="" class="resp">
+                <img src="{{game.picture}}" alt="" class="resp">
                 <div class="container">
                     <a href="{{ path('games_show', {'id': game.id}) }}"><h4><b>{{ game.title }}</b></h4></a>
                 </div>

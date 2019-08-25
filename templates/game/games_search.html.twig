@@ -4,13 +4,13 @@
 
 {% block main %}
     <section>
-        <h1>Tous les jeux disponibles</h1>
+        <h1>Resultat de la recherche</h1>
         <article class="card-show">
-            {% for game in games %}
+            {% for elem in gameTitle %}
                 <div class="card">
-                    <img src="{{game.picture}}" alt="" class="resp">
+                    <img src="{{ elem.picture }}" alt="" class="resp">
                     <div class="container">
-                        <a href="{{ path('games_show', {'id': game.id}) }}"><h4><b>{{ game.title }}</b></h4></a>
+                        <a href="{{ path('games_show', {'id': elem.id}) }}"><h4><b>{{ elem.title }}</b></h4></a>
                     </div>
                 </div>
             {% endfor %}

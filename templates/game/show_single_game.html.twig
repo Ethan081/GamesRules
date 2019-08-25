@@ -3,12 +3,11 @@
 {% block title %}Hello GamesRulesController!{% endblock %}
 
 {% block main %}
-
     <article class="card-show">
         <div class="card">
-            <img src="{{game.picture}}" alt="" class="resp">
+            <img src="{{ game.picture }}" alt="" class="resp">
             <div class="container">
-                <h4><b>{{game.title}}</b></h4>
+                <h4><b>{{ game.title }}</b></h4>
                 <p>{{ game.description }}</p>
             </div>
         </div>

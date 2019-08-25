@@ -18,10 +18,11 @@ class GameController extends AbstractController
      */
     public function game(GameRepository $gameRepository)
     {
+
         $games = $gameRepository->findAll();
         return $this->render('game/games.html.twig',
             [
-                'games' => $games
+                'games' => $games,
 
             ]);
     }
@@ -84,6 +85,20 @@ class GameController extends AbstractController
 
 //-----------------------------------------------------------
 
+    /**
+     * @Route("/games/search", name="games_search")
+     */
+    public function gameSearch(GameRepository $gameRepository, Request $request)
+    {
+        $word = $request->query->get('title');
+        $gameTitle = $gameRepository->findByWord($word);
+        return $this->render('game/games_search.html.twig',
+            [
+                'gameTitle'=> $gameTitle
+
+            ]);
+    }
+//-----Je place la function show+wildcard toujours en dernier pour ne pas avoir de conflic--
     /**
      * @Route("/games/{id}", name="games_show")
      */

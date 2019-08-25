@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee7bc4a6-ba58-4c6c-bfb5-ea7cf097407a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/game/games_search.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/GameController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/game/create_game.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game/create_game.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/GamesRulesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GamesRulesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/GameRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/GameRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/game/games.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game/games.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/game/show_single_game.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game/show_single_game.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/games_rules/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/games_rules/index.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -167,7 +171,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1566722217987</updated>
-      <workItem from="1566722221307" duration="14688000" />
+      <workItem from="1566722221307" duration="19110000" />
     </task>
     <servers />
   </component>

@@ -8,12 +8,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class GamesRulesController extends AbstractController
 {
     /**
-     * @Route("/", name="games_rules")
+     * @Route("/", name="home")
      */
     public function index()
     {
-        return $this->render('games_rules/index.html.twig', [
-            'controller_name' => 'GamesRulesController',
+        return $this->render('games_rules/index.html.twig',
+            [
+
         ]);
     }
 }

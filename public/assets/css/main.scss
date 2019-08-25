@@ -9,6 +9,7 @@ img{
   width: 100%;
 }
 
+
 //----------NavBar--------
 .navbar{
   background-color: #868686;
@@ -46,4 +47,13 @@ img{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+//----------GameForm------------
+
+#game-form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

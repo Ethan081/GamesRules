@@ -71,7 +71,7 @@ class GameController extends AbstractController
      * @Route("/games/{id}/remove", name="game_remove")
      */
 
-    public function gameRemove(EntityManagerInterface $entityManager, $id, GameRepository $gameRepository)
+    public function remove(EntityManagerInterface $entityManager, $id, GameRepository $gameRepository)
     {
         $game = $gameRepository->find($id);
 

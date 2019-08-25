@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GameController!{% endblock %}
+
+{% block main %}
+    <section>
+        <h1>Tous les jeux disponibles</h1>
+        <article class="card-show">
+            {% for game in games %}
+                <div class="card">
+                    <img src="http://via.placeholder.com/100" alt="" class="resp">
+                    <div class="container">
+                        <a href="{{ path('games_show', {'id': game.id}) }}"><h4><b>{{ game.title }}</b></h4></a>
+                    </div>
+                </div>
+            {% endfor %}
+        </article>
+    </section>
+{% endblock %}

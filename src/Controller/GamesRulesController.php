@@ -20,16 +20,5 @@ class GamesRulesController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/games/{id}", name="games_show")
-     */
-    public function show(GameRepository $gameRepository, $id)
-    {
-        $game = $gameRepository->find($id);
-        return $this->render('games_rules/show.html.twig',
-            [
-                'game' => $game
-            ]);
 
-    }
 }

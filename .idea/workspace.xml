@@ -4,7 +4,6 @@
     <list default="true" id="ee7bc4a6-ba58-4c6c-bfb5-ea7cf097407a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Game.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Game.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/game/create_game.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game/create_game.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -167,7 +166,7 @@
       <option name="presentableId" value="Default" />
       <updated>1566722217987</updated>
       <workItem from="1566722221307" duration="19291000" />
-      <workItem from="1566806484495" duration="1051000" />
+      <workItem from="1566806484495" duration="1936000" />
     </task>
     <servers />
   </component>

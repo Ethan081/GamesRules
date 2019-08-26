@@ -6,12 +6,12 @@
     <section>
         <article class="card-show">
             <div class="card">
-                <img src="{{ game.picture }}" alt="" class="resp">
+                <img src="{{ asset('assets/img/pictures') }}/{{ game.picture }}" alt="" class="resp">
                 <div class="container">
                     <h2><b>{{ game.title }}</b></h2>
                     <h3>{{ game.category.title }}</h3>
                     <p>{{ game.description }}</p>
-                    <a href="{{ asset('assets/img/save_rules' ~ game.rule.filePath) }}">Voir La Regle</a>
+{#                    <a href="{{ asset('assets/img/save_rules' ~ game.rule.filePath) }}">Voir La Regle</a>#}
                 </div>
             </div>
         </article>

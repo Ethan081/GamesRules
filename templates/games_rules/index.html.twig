@@ -19,7 +19,7 @@
         <article class="card-show">
             {% for game in games|slice(-4) %}
             <div class="card">
-                <img src="{{game.picture}}" alt="" class="resp">
+                <img src="{{ asset('assets/img/pictures') }}/{{ game.picture }}" alt="" class="resp">
                 <div class="container">
                     <a href="{{ path('games_show', {'id': game.id}) }}"><h4><b>{{ game.title }}</b></h4></a>
                 </div>

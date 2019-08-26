@@ -58,7 +58,9 @@ class GameController extends AbstractController
             //On recupere la valeur du fichier selectionner
 
             // return a la page de tous les jeux.
-            return $this->render('game/games.html.twig');
+            return $this->render('game/games.html.twig',[
+                'games' => $game
+            ]);
         }
 
         return $this->render('game/create_game.html.twig',

@@ -8,7 +8,7 @@
         <article class="card-show">
             {% for elem in gameTitle %}
                 <div class="card">
-                    <img src="{{ elem.picture }}" alt="" class="resp">
+                    <img src="{{ asset('assets/img/pictures') }}/{{ elem.picture }}" alt="" class="resp">
                     <div class="container">
                         <a href="{{ path('games_show', {'id': elem.id}) }}"><h4><b>{{ elem.title }}</b></h4></a>
                     </div>

@@ -37,11 +37,11 @@ class Game
      * @var string|null
      * @ORM\Column(type="string", length=255)
      */
-    private $filename;
+    private $picture;
 
     /**
      * @var File|null
-     * @Vich\UploadableField(mapping="game_picture", fileNameProperty="filename")
+     * @Vich\UploadableField(mapping="game_picture", fileNameProperty="picture")
      */
     private $imageFile;
 //----------------------------------------------
@@ -107,17 +107,17 @@ class Game
     /**
      * @return string|null
      */
-    public function getFilename(): ?string
+    public function getPicture(): ?string
     {
-        return $this->filename;
+        return $this->picture;
     }
 
     /**
-     * @param string|null $filename
+     * @param string|null $picture
      */
-    public function setFilename(?string $filename): void
+    public function setPicture(?string $picture): void
     {
-        $this->filename = $filename;
+        $this->picture = $picture;
     }
 
     /**

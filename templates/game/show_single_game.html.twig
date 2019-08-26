@@ -3,13 +3,29 @@
 {% block title %}Hello GamesRulesController!{% endblock %}
 
 {% block main %}
-    <article class="card-show">
-        <div class="card">
-            <img src="{{ game.picture }}" alt="" class="resp">
-            <div class="container">
-                <h4><b>{{ game.title }}</b></h4>
-                <p>{{ game.description }}</p>
+    <section>
+        <article class="card-show">
+            <div class="card">
+                <img src="{{ game.picture }}" alt="" class="resp">
+                <div class="container">
+                    <h2><b>{{ game.title }}</b></h2>
+                    <h3>{{ game.category.title }}</h3>
+                    <p>{{ game.description }}</p>
+                    <a href="{{ asset('assets/img/save_rules' ~ game.rule.filePath) }}">Voir La Regle</a>
+                </div>
+            </div>
+        </article>
+    </section>
+    <section id="commentaires">
+        {% for comment in game.comments %}
+        <div class="comment">
+            <div>
+                {{ comment.author }} (<small>{{ comment.createdAt|date('d/m/Y') }}</small>)
+            </div>
+            <div>
+                {{ comment.content }}
             </div>
         </div>
-    </article>
+        {% endfor %}
+    </section>
 {% endblock %}

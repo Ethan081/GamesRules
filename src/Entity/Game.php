@@ -5,9 +5,13 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\GameRepository")
+ * @Vich\Uploadable
  */
 class Game
 {
@@ -17,7 +21,6 @@ class Game
      * @ORM\Column(type="integer")
      */
     private $id;
-
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -28,10 +31,20 @@ class Game
      */
     private $description;
 
+//------------------image uploard----------
+
     /**
+     * @var string|null
      * @ORM\Column(type="string", length=255)
      */
-    private $picture;
+    private $filename;
+
+    /**
+     * @var File|null
+     * @Vich\UploadableField(mapping="game_picture", fileNameProperty="filename")
+     */
+    private $imageFile;
+//----------------------------------------------
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="games")
@@ -48,6 +61,11 @@ class Game
      * @ORM\JoinColumn(nullable=false)
      */
     private $publisher;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updatedAt;
 
     public function __construct()
     {
@@ -83,17 +101,45 @@ class Game
         return $this;
     }
 
-    public function getPicture(): ?string
+
+//------------------image uploard get set----------
+
+    /**
+     * @return string|null
+     */
+    public function getFilename(): ?string
     {
-        return $this->picture;
+        return $this->filename;
     }
 
-    public function setPicture(string $picture): self
+    /**
+     * @param string|null $filename
+     */
+    public function setFilename(?string $filename): void
     {
-        $this->picture = $picture;
-
-        return $this;
+        $this->filename = $filename;
     }
+
+    /**
+     * @return File|null
+     */
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File|null $imageFile
+     *
+     */
+    public function setImageFile(?File $imageFile): void
+    {
+        $this->imageFile = $imageFile;
+        if ($this->imageFile instanceof UploadedFile){
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
 //---------------category relation--------
     public function getCategory(): ?Category
     {
@@ -146,6 +192,18 @@ class Game
     public function setPublisher(?Publisher $publisher): self
     {
         $this->publisher = $publisher;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

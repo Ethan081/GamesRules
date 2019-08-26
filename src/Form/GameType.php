@@ -3,18 +3,36 @@
 namespace App\Form;
 
 use App\Entity\Game;
+use App\Entity\Category;
+use App\Entity\Publisher;
+use App\Entity\Rule;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
-class GameType extends AbstractType
+class  GameType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('title')
+            ->add('publisher', EntityType::class,[
+                'class' => Publisher::class,
+                'choice_label' => 'title'
+
+            ])
+            ->add('category', EntityType::class, [
+                'class' => Category::class,
+                'choice_label' => 'title'
+            ])
             ->add('description')
-            ->add('picture')
+            ->add('imageFile', FileType::class, [
+                'required' => false
+            ])
+
+
 
         ;
     }

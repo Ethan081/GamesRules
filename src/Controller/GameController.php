@@ -36,25 +36,28 @@ class GameController extends AbstractController
      */
     public function form(Game $game = null, Request $request, EntityManagerInterface $entityManager)
     {
+
 //        Si c est un nouvelle article
 //        j 'instancie un l entite Game
         if (!$game){
             $game = new Game();
         }
-
 //       J assigne a $form la creation d'un formumaire et je lui lie mon instance de class Game($game)
         $form = $this->createForm(GameType::class, $game);
-
 //        je recupere les donnee de mon formulaire et j annalise la requet .Si et seloemnt si la requet est de type Post
         $form->handleRequest($request);
         //dump($game); Je verifie si la requet est remplie de donnees.
+
+
 
         //Si le form et envoyer et valider
         if ($form->isSubmitted() && $form->isValid()) {
             //On envoie le game en DB grace a permit et flush
             $entityManager->persist($game);
             $entityManager->flush();
-        // return a la page de tous les jeux.
+            //On recupere la valeur du fichier selectionner
+
+            // return a la page de tous les jeux.
             return $this->render('game/games.html.twig');
         }
 

@@ -14,8 +14,12 @@
             {{ form_start(gameForm) }}
 
             {{ form_row(gameForm.title, {'attr': {'placeholder': 'Nom du jeux'}}) }}
+            {{ form_row(gameForm.publisher) }}
+            {{ form_row(gameForm.category) }}
             {{ form_row(gameForm.description, {'attr': {'placeholder': 'Description du jeux'}}) }}
-            {{ form_row(gameForm.picture, {'attr': {'placeholder': 'Url de l\'image'}}) }}
+            {{ form_row(gameForm.imageFile)  }}
+
+
 
             <button type="submit" class="btn btn-success">
                 {% if editMode %}

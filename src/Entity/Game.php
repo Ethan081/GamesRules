@@ -43,6 +43,12 @@ class Game
      */
     private $comments;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Publisher", inversedBy="games")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $publisher;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -128,6 +134,18 @@ class Game
                 $comment->setGame(null);
             }
         }
+
+        return $this;
+    }
+//---------------publisher relation--------
+    public function getPublisher(): ?Publisher
+    {
+        return $this->publisher;
+    }
+
+    public function setPublisher(?Publisher $publisher): self
+    {
+        $this->publisher = $publisher;
 
         return $this;
     }

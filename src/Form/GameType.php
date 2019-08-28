@@ -5,12 +5,12 @@ namespace App\Form;
 use App\Entity\Game;
 use App\Entity\Category;
 use App\Entity\Publisher;
-use App\Entity\Rule;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+
 
 class  GameType extends AbstractType
 {
@@ -31,9 +31,9 @@ class  GameType extends AbstractType
             ->add('imageFile', FileType::class, [
                 'required' => false
             ])
-
-
-
+            ->add('ruleFile', FileType::class, [
+                    'required' => false
+            ])
         ;
     }
 

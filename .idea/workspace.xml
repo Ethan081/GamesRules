@@ -3,13 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="ee7bc4a6-ba58-4c6c-bfb5-ea7cf097407a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/vich_uploader.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/vich_uploader.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/GameController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Game.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Game.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/game/games.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game/games.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/game/games_search.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game/games_search.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Rule.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Rule.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/GameType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/GameType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/game/create_game.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game/create_game.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/game/show_single_game.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game/show_single_game.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/games_rules/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/games_rules/index.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -177,7 +176,9 @@
       <updated>1566722217987</updated>
       <workItem from="1566722221307" duration="19291000" />
       <workItem from="1566806484495" duration="14918000" />
-      <workItem from="1566844916942" duration="2369000" />
+      <workItem from="1566844916942" duration="5284000" />
+      <workItem from="1566906304924" duration="7791000" />
+      <workItem from="1566982138072" duration="1963000" />
     </task>
     <servers />
   </component>

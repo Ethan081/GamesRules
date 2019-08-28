@@ -3,9 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\RuleRepository")
+ * @Vich\Uploadable
  */
 class Rule
 {
@@ -17,47 +20,60 @@ class Rule
     private $id;
 
     /**
+     * @var string|null
      * @ORM\Column(type="string", length=255)
      */
-    private $title;
+    private $rule;
+
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var File|null
+     * @Vich\UploadableField(mapping="game_rule", fileNameProperty="rule")
      */
-    private $filePath;
+    private $ruleFile;
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Game", cascade={"persist", "remove"})
      */
     private $games;
 
+//    ----------Getter--Setter-----------------
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getTitle(): ?string
+    /**
+     * @return string|null
+     */
+    public function getRule(): ?string
     {
-        return $this->title;
+        return $this->rule;
     }
 
-    public function setTitle(string $title): self
+    /**
+     * @param string|null $rule
+     */
+    public function setRule(?string $rule): void
     {
-        $this->title = $title;
-
-        return $this;
+        $this->rule = $rule;
     }
 
-    public function getFilePath(): ?string
+    /**
+     * @return File|null
+     */
+    public function getRuleFile(): ?File
     {
-        return $this->filePath;
+        return $this->ruleFile;
     }
 
-    public function setFilePath(string $filePath): self
+    /**
+     * @param File|null $ruleFile
+     */
+    public function setRuleFile(?File $ruleFile): void
     {
-        $this->filePath = $filePath;
-
-        return $this;
+        $this->ruleFile = $ruleFile;
     }
 
     public function getGames(): ?Game

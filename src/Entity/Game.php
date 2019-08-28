@@ -45,6 +45,20 @@ class Game
      */
     private $imageFile;
 //----------------------------------------------
+//------------------rule uploard----------
+
+    /**
+     * @var string|null
+     * @ORM\Column(type="string", length=255)
+     */
+    private $rule;
+
+    /**
+     * @var File|null
+     * @Vich\UploadableField(mapping="game_rule", fileNameProperty="rule")
+     */
+    private $ruleFile;
+//----------------------------------------------
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="games")
@@ -140,6 +154,41 @@ class Game
         }
     }
 
+//------------------rule uploard get set----------
+    /**
+     * @return string|null
+     */
+    public function getRule(): ?string
+    {
+        return $this->rule;
+    }
+
+    /**
+     * @param string|null $rule
+     */
+    public function setRule(?string $rule): void
+    {
+        $this->rule = $rule;
+    }
+
+    /**
+     * @return File|null
+     */
+    public function getRuleFile(): ?File
+    {
+        return $this->ruleFile;
+    }
+
+    /**
+     * @param File|null $ruleFile
+     */
+    public function setRuleFile(?File $ruleFile): void
+    {
+        $this->ruleFile = $ruleFile;
+        if ($this->ruleFile instanceof UploadedFile){
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
 //---------------category relation--------
     public function getCategory(): ?Category
     {

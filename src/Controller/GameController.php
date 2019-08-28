@@ -4,11 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Game;
 use App\Form\GameType;
-use App\Entity\Rule;
 use App\Repository\GameRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -38,26 +36,30 @@ class GameController extends AbstractController
      */
     public function form(Game $game = null, Request $request, EntityManagerInterface $entityManager)
     {
-
 //        Si ce n est un nouveau est un nouvelle article
 //        j 'instancie un l entite Game
         if (!$game){
             $game = new Game();
         }
-
 //       J assigne a $form la creation d'un formumaire et je lui lie mon instance de class Game($game)
         $form = $this->createForm(GameType::class, $game);
-//        je recupere les donnee de mon formulaire et j annalise la requet .Si et seloemnt si la requet est de type Post
+//        je demande au formulaire de gerer ma  request
         $form->handleRequest($request);
-        //dump($game); Je verifie si la requet est remplie de donnees.
+
+        // Je verifie si la requet est remplie de donnees.
+        dump($request);
 
         //Si le form et envoyer et valider
         if ($form->isSubmitted() && $form->isValid()) {
-            //On enregistre le game en DB grace a permit et flush
-            $entityManager->persist($game);
-            $entityManager->flush();
+            if (!$game->getId()){
+                $game->setUpdatedAt(new \DateTime());
+            }
+
+            //J envoie et persiste en base de bonnee
+//            $entityManager->persist($game);
+//            $entityManager->flush();
             //On recupere la valeur du fichier selectionner
-            return $this->redirectToRoute('games_show', ['id' => $game->getId()]);
+//            return $this->redirectToRoute('games_show', ['id' => $game->getId()]);
 
         }
 

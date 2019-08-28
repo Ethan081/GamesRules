@@ -8,8 +8,6 @@ vich_uploader:
 #          J aindique dans quel dissier l'image est sauvee.
             upload_destination: '%kernel.project_dir%/public/assets/img/pictures'
 
-
-
         game_rule:
             uri_prefix: assets/img/game_rule
             upload_destination: '%kernel.project_dir%/public/assets/img/game_rule'

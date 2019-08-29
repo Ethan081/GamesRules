@@ -3,6 +3,18 @@
 {% block title %}Hello GameController!{% endblock %}
 
 {% block main %}
+     <section>
+        <article class="#">
+            <form class="example" action="{{ path('games_search') }}" method="get">
+                <input type="text" placeholder="Search.." name="titre">
+                <button type="submit">Search</button>
+            </form>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </article>
+     </section>
     <section>
         <h1>Tous les jeux disponibles</h1>
         <article class="card-show">

@@ -32,10 +32,7 @@ class  GameType extends AbstractType
                 'required' => false,
                 'label' => 'Image (JPG file)'
             ])
-//            ->add('ruleFile', FileType::class, [
-//                'required' => false,
-//                'label' => 'Regle (PDF file)'
-//            ])
+            ->add('rule')
         ;
     }
 

@@ -28,7 +28,7 @@ class GameController extends AbstractController
     }
 
 
-// ---------------------Cree et Edit un nouveux/anciens Game en DB-----------------
+// ---------------------Create & Edit Game en DB-----------------
 //Je cree deux routes l'une pour cree un article et l'autre pour les editees grace a leur id.
     /**
      * @Route("/games/new", name="game_create")
@@ -56,10 +56,10 @@ class GameController extends AbstractController
             }
 
             //J envoie et persiste en base de bonnee
-//            $entityManager->persist($game);
-//            $entityManager->flush();
+           $entityManager->persist($game);
+           $entityManager->flush();
             //On recupere la valeur du fichier selectionner
-//            return $this->redirectToRoute('games_show', ['id' => $game->getId()]);
+           return $this->redirectToRoute('games_show', ['id' => $game->getId()]);
 
         }
 

@@ -1,0 +1,36 @@
+@import'color';
+@import'init';
+@import'font';
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  width: 20px;
+  transition: 0.3s;
+  border-radius: 10px;
+  background-color: beige;
+  margin: 10px;
+  padding: 10px;
+
+}
+
+.card:hover {
+  box-shadow: 0 8px 20px 0 rgba(0,0,0,0.4);
+  transform: scale(1);
+
+}
+
+.container {
+  padding: 2px 16px;
+}
+.card-body a{
+  color: black;
+  text-align: center;
+  font-family: $titre;
+
+}
+.card-body a:hover{
+  text-decoration:none;
+  color: #4CAF50;
+}
+.article-text{
+  margin-left: 20px;
+}

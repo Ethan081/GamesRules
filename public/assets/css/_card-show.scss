@@ -1,0 +1,88 @@
+@import'color';
+@import'font';
+.game-section{
+    display: flex;
+    justify-content: center;
+}
+.game-detail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.game-article{
+    width: 80%;
+    background-color: beige;
+    padding: 20px;
+    font-family: $titre;
+}
+.button-rule{
+    width: 160px;
+    height: 80px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    font-family: $menu;
+    cursor: pointer;
+    border-radius: 15px;
+    margin: 50px 0px;
+
+}
+.button-rule a{
+    color: $white;
+    text-decoration: none;
+}
+.button-rule:hover{
+    background-color: darkgreen;
+}
+
+.game-info{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 110px;
+
+}
+.game-title{
+    font-size: 45px;
+    padding: 10px 47px;
+    margin-top: 50px;
+
+}
+.game-publisher{
+    font-size: 30px;
+    font-family: $titre;
+}
+.game-category{
+    font-family: $titre;
+    margin-right: 130px;
+}
+.game-description{
+    font-family: $text;
+    margin-top: 30px;
+}
+
+.game-img{
+    width: 400px;
+    height: 400px;
+    border: 1px solid blue;
+}
+
+.comment{
+    width: 30%;
+    background-color: #4CAF50;
+    padding: 5px;
+    border-radius: 5px;
+}
+.comment-author{
+    background-color: lightgreen;
+}
+.comment-content{
+    color: #f1f1f1;
+    width: 100%;
+    background-color: #718C00;
+    border-radius: 5px;
+    margin-top: 5px;
+}

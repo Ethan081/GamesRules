@@ -3,28 +3,29 @@
 {% block title %}Hello GamesRulesController!{% endblock %}
 
 {% block main %}
-    <section>
-        <article class="card-show">
-            <div class="card">
-                <img src="{{ asset('assets/img/pictures') }}/{{ game.picture }}" alt="" class="resp">
-                <div class="container">
-                    <h2><b>{{ game.title }}</b></h2>
-                    <h3>{{ game.publisher.title }}</h3>
-                    <h3>{{ game.category.title }}</h3>
-                    <p>{{ game.description }}</p>
-                    <a href="{{ game.rule }}">View contract (PDF)</a>
-
+    <section class="game-section">
+        <article class="game-article">
+            <div class="game-info">
+                <div class="game-img">
+                    <img src="{{ asset('assets/img/pictures') }}/{{ game.picture }}" alt="" class="resp">
+                </div>
+                <div class="game-detail">
+                    <div class="game-title">{{ game.title }}</div>
+                    <div class="game-publisher">Edition: {{ game.publisher.title }}</div>
+                    <div class="game-category">Categorie: {{ game.category.title }}</div>
+                    <a href="{{ game.rule }}"  target="_blank"><button class="button-rule">Regle du Jeu</button></a>
                 </div>
             </div>
+            <div class="game-description"><p>{{ game.description }}</p></div>
         </article>
     </section>
     <section id="commentaires">
         {% for comment in game.comments %}
         <div class="comment">
-            <div>
+            <div class="comment-author">
                 {{ comment.author }} (<small>{{ comment.createdAt|date('d/m/Y') }}</small>)
             </div>
-            <div>
+            <div class="comment-content">
                 {{ comment.content }}
             </div>
         </div>

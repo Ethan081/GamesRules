@@ -33,6 +33,7 @@ class  GameType extends AbstractType
                 'label' => 'Image (JPG file)'
             ])
             ->add('rule')
+
         ;
     }
 

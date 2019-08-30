@@ -4,28 +4,38 @@
 
 {% block main %}
      <section>
-        <article class="#">
-            <form class="example" action="{{ path('games_search') }}" method="get">
-                <input type="text" placeholder="Search.." name="titre">
-                <button type="submit">Search</button>
-            </form>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </article>
+         <div class="col-12 col-lg-12 d-flex justify-content-center search-bar" >
+             <form class="form-inline " action="{{ path('games_search') }}" method="get">
+                 <div class="input-group">
+                     <input class="form-control" type="text" placeholder="Titre du jeu..." name="title">
+                     <button type="button" class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
+                 </div>
+             </form>
+         </div>
      </section>
     <section>
-        <h1>Tous les jeux disponibles</h1>
-        <article class="card-show">
-            {% for game in games %}
-                <div class="card">
-                    <img src="{{ asset('assets/img/pictures') }}/{{ game.picture }}" alt="" class="resp">
-                    <div class="container">
-                        <a href="{{ path('games_show', {'id': game.id}) }}"><h4><b>{{ game.title }}</b></h4></a>
-                    </div>
+        <div class="col-12 col-lg-12 d-flex justify-content-center search-bar" >
+            <form class="form-inline " action="{{ path('games_search') }}" method="get">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Editeur du jeux" name="title">
+                    <button type="button" class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
                 </div>
-            {% endfor %}
-        </article>
+            </form>
+        </div>
     </section>
+        <section>
+            <article class="row d-flex justify-content-center">
+                <div class="col-12 col-lg-12 list-text d-flex justify-content-center" >
+                    <h1>Tous les jeux disponibles</h1>
+                </div>
+                {% for game in games%}
+                    <div class="card col-8 col-lg-3">
+                        <img class="card-img-top" src="{{ asset('assets/img/pictures') }}/{{ game.picture }}" alt="Card image cap">
+                        <div class="card-body">
+                            <a href="{{ path('games_show', {'id': game.id}) }}"><h4>{{ game.title }}</h4></a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </article>
+        </section>
 {% endblock %}

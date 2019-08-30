@@ -4,16 +4,19 @@
 
 {% block main %}
     <section>
-        <h1>Resultat de la recherche</h1>
-        <article class="card-show">
+        <article class="row d-flex justify-content-center">
+            <div class="col-12 col-lg-12 list-text d-flex justify-content-center" >
+                <h1>Tous les jeux disponibles</h1>
+            </div>
             {% for elem in gameTitle %}
-                <div class="card">
-                    <img src="{{ asset('assets/img/pictures') }}/{{ elem.picture }}" alt="" class="resp">
-                    <div class="container">
-                        <a href="{{ path('games_show', {'id': elem.id}) }}"><h4><b>{{ elem.title }}</b></h4></a>
+                <div class="card col-8 col-lg-3">
+                    <img class="card-img-top" src="{{ asset('assets/img/pictures') }}/{{ elem.picture }}" alt="Card image cap">
+                    <div class="card-body">
+                        <a href="{{ path('games_show', {'id': elem.id}) }}"><h4>{{ elem.title }}</h4></a>
                     </div>
                 </div>
             {% endfor %}
         </article>
     </section>
+
 {% endblock %}

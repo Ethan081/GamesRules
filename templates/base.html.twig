@@ -16,12 +16,24 @@
                 <div class="logo">
                     <img src="{{asset('assets/img/logo_Game_rules.png')}}" alt="">
                 </div>
-                <div class="links">
+                <div class="connected">
+                    {% if app.user %}
+                        <h4>{{ app.user.username}}</h4>
+                    {% endif %}
+                </div>
+                <li class="links">
                     <ul>
                         <li><a href="{{ path('home') }}">Acceuil</a></li>
                         <li><a href="{{ path('games') }}">Jeux</a></li>
-                        <li><a href="{{ path('game_create') }}">Create</a></li>
-                        <li><a href="#">LogIn</a></li>
+                        {% if is_granted('ROLE_USER') %}
+                            <li><a href="{{ path('game_create') }}">Create</a></li>
+                            <li><a href="{{ path('admin_page') }}">Admin</a></li>
+                            <li><a href="{{ path('fos_user_security_logout') }}">LogOut</a></li>
+                        {% else %}
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="{{ path('fos_user_registration_register') }}">SignIn</a></li>
+                            <li><a href="{{ path('admin_page') }}">LogIn</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </nav>

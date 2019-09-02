@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+{#je vais chercher se qui est contenue dans le bloc fos_user_content qui est dans
+vendor/friendsofsymfony/views#}
+ {% block main %}
+     <div class="section">
+         {% block fos_user_content %}
+         {% endblock fos_user_content%}
+     </div>
+ {% endblock %}

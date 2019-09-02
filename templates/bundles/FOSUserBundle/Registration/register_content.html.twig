@@ -1,0 +1,29 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{#{% form_theme form 'bootstrap_4_layout.html.twig' %}#}
+<div class="register">
+    <div class="form-group ">
+        {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+    </div>
+    <div class="form-group">
+       <div class="col-12 col-lg-6">{{ form_label(form.email, 'Email') }}</div>
+        <div class="col-12 col-lg-6">{{ form_widget(form.email, { 'attr': {'class': 'pure-form'}}) }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-12 col-lg-6 ">{{ form_label(form.username, 'Username') }}</div>
+        <div class="col-12 col-lg-6 ">{{ form_widget(form.username) }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-12 col-lg-6">{{ form_label(form.plainPassword.first, 'Password') }}</div>
+        <div class="col-12 col-lg-6">{{ form_widget(form.plainPassword.first) }}</div>
+    </div>
+    <div class="form-group">
+        <div class="col-12 col-lg-6">{{ form_label(form.plainPassword.second, 'Confirm Password') }}</div>
+        <div class="col-12 col-lg-6">{{ form_widget(form.plainPassword.second) }}</div>
+    </div>
+
+        <div>
+            <input class="btn btn-success" type="submit" value="{{ 'valid'|trans }}" />
+        </div>
+
+        {{ form_end(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+</div>

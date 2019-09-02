@@ -8,11 +8,15 @@ nav {
     display: flex;
   }
   .logo{
-    width: 20%;
+    width: 100%;
     margin-left: 40px;
+    display: flex;
+    justify-content: center;
   }
   .links{
     width: 100%;
+    list-style-type: none;
+
   }
   
   .links ul {

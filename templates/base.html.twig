@@ -16,13 +16,9 @@
                 <div class="logo">
                     <img src="{{asset('assets/img/logo_Game_rules.png')}}" alt="">
                 </div>
-                <div class="connected">
-                    {% if app.user %}
-                        <h4>{{ app.user.username}}</h4>
-                    {% endif %}
-                </div>
+
                 <li class="links">
-                    <ul>
+                    <ul class="links">
                         <li><a href="{{ path('home') }}">Acceuil</a></li>
                         <li><a href="{{ path('games') }}">Jeux</a></li>
                         {% if is_granted('ROLE_USER') %}
@@ -35,7 +31,14 @@
                             <li><a href="{{ path('admin_page') }}">LogIn</a></li>
                         {% endif %}
                     </ul>
-                </div>
+                    {% if is_granted('ROLE_USER') %}
+                        <div class="alert alert-success d-flex justify-content-center" role="alert">
+                            {% if app.user %}
+                                <span>Bonjour {{ app.user.username}} vous etes bien Admin. Vous avez le controle sur le Site</span>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </li>
             </nav>
         </header>
         {% block main %}

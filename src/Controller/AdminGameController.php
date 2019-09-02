@@ -53,8 +53,10 @@ class AdminGameController extends AbstractController
             //J envoie et persiste en base de bonnee
             $entityManager->persist($game);
             $entityManager->flush();
+            $this->addFlash('success', 'Enregistrer avec Success' );
             //On recupere la valeur du fichier selectionner
-            return $this->redirectToRoute('games_show', ['id' => $game->getId()]);
+//            return $this->redirectToRoute('games_show', ['id' => $game->getId()]);
+            return $this->redirectToRoute('admin_page');
 
         }
 
@@ -79,15 +81,10 @@ class AdminGameController extends AbstractController
         $entityManager->remove($game);
 
         $entityManager->flush();
+        $this->addFlash('success', 'Le Jeux ' .$game->getTitle().' a bien ete supprime' );
 
-        return new Response('Le Jeux ' .$game->getTitle().' a bien ete supprime');
+//        return new Response('Le Jeux ' .$game->getTitle().' a bien ete supprime');
     }
 
 //-----------------------------------------------------------
-
-
-
-
-
-
 }

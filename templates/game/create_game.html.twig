@@ -6,7 +6,7 @@
 {% block main %}
     <section>
         <article id="game-form">
-            <h1>creation d un article</h1>
+            <h1>Ajouter un Jeux</h1>
 
             {{ form_start(gameForm) }}
 
@@ -14,7 +14,7 @@
             {{ form_row(gameForm.publisher) }}
             {{ form_row(gameForm.category) }}
             {{ form_row(gameForm.description, {'attr': {'placeholder': 'Description du jeux'}}) }}
-            {{ form_row(gameForm.imageFile)  }}
+            {{ form_row(gameForm.imageFile) }}
             {{ form_row(gameForm.rule, {'attr': {'placeholder': 'http://....'}})  }}
 
             <button type="submit" class="btn btn-success">

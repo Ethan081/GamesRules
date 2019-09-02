@@ -19,16 +19,28 @@
             <div class="game-description"><p>{{ game.description }}</p></div>
         </article>
     </section>
-    <section id="commentaires">
+    <section class="comment-box">
         {% for comment in game.comments %}
-        <div class="comment">
-            <div class="comment-author">
-                {{ comment.author }} (<small>{{ comment.createdAt|date('d/m/Y') }}</small>)
+            <div class="card-comment border-secondary mb-3" >
+                <div class="card-header">{{ comment.author }} (<small>{{ comment.createdAt|date('d/m/Y') }}</small>)</div>
+                <div class="card-body text-secondary">
+
+                    <p class="card-text">{{ comment.content }}</p>
+                </div>
             </div>
-            <div class="comment-content">
-                {{ comment.content }}
-            </div>
-        </div>
         {% endfor %}
     </section>
+    {% if is_granted('ROLE_USER') %}
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="comment-form">
+                    {{ form_start(commentForm) }}
+                    {{ form_row(commentForm.author, {'attr':{'placeholder' : "Votre nom"}}) }}
+                    {{ form_row(commentForm.content, {'attr':{'placeholder' : "Votre commentaire"}}) }}
+                        <button type="submit" class="btn btn-success">Commenter</button>
+                    {{ form_end(commentForm) }}
+                </div>
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}

@@ -168,25 +168,6 @@ img {
   border: 1px solid blue;
 }
 
-.comment {
-  width: 30%;
-  background-color: #4CAF50;
-  padding: 5px;
-  border-radius: 5px;
-}
-
-.comment-author {
-  background-color: lightgreen;
-}
-
-.comment-content {
-  color: #f1f1f1;
-  width: 100%;
-  background-color: #718C00;
-  border-radius: 5px;
-  margin-top: 5px;
-}
-
 .search-box {
   margin: 100px 0;
   font-family: "Source Sans Pro", sans-serif;
@@ -220,6 +201,67 @@ img {
   width: 50px;
 }
 
+.comment-box {
+  margin: 50px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comment {
+  width: 30%;
+  background-color: bisque;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.comment-author {
+  background-color: seashell;
+  border-bottom: 2px solid black;
+}
+
+.comment-content {
+  color: black;
+  width: 100%;
+  background-color: seashell;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.pb-cmnt-container {
+  font-family: Lato;
+  margin-top: 100px;
+}
+
+.pb-cmnt-textarea {
+  resize: none;
+  padding: 20px;
+  height: 130px;
+  width: 100%;
+  border: 1px solid #F2F2F2;
+}
+
+.card-comment {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 50%;
+  transition: 0.3s;
+  border-radius: 10px;
+  background-color: beige;
+  margin: 10px;
+  padding: 10px;
+}
+
+.comment-text-area {
+  display: flex;
+  justify-content: center;
+}
+
+.comment-form {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 0 grey;
+}
+
 #game-form {
   width: 100%;
   display: flex;
@@ -236,6 +278,7 @@ img {
   background-color: #C9C9C9;
   border-radius: 10px;
   padding: 10px;
+  margin: 0px 40px;
 }
 
 .wrapper {
@@ -249,6 +292,13 @@ img {
   margin: 0 auto;
   background-color: #fff;
   border: 1px solid black;
+}
+
+.form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
 }
 
 .list-text {

@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Comment;
 use App\Entity\Game;
+use App\Form\CommentType;
 use App\Form\GameType;
 use App\Repository\GameRepository;
+use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -44,12 +47,26 @@ class GameController extends AbstractController
     /**
      * @Route("/games/{id}", name="games_show")
      */
-    public function show(GameRepository $gameRepository, $id)
+    public function show(Game $game, GameRepository $gameRepository, $id, Request $request, ObjectManager $manager)
     {
+        $comment = new Comment();
+        $form = $this->createForm(CommentType::class, $comment);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()){
+            $comment->setCreatedAt(new \DateTime())
+                    ->setGame($game);
+
+            $manager->persist($comment);
+            $manager->flush();
+
+            return $this->redirectToRoute('games_show', ['id'=> $game->getId()]);
+
+        }
         $game = $gameRepository->find($id);
         return $this->render('game/show_single_game.html.twig',
             [
-                'game' => $game
+                'game' => $game,
+                'commentForm' => $form->createView()
             ]);
 
     }

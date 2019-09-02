@@ -37,6 +37,8 @@ class Comment
      */
     private $game;
 
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,4 +91,6 @@ class Comment
 
         return $this;
     }
+
+
 }

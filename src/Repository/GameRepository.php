@@ -18,16 +18,17 @@ class GameRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Game::class);
     }
-//    ---------function search bar home-------------
-
+//    ---------méthode search bar home-------------
+//    Cette méthode recupère les titres de mes jeux.
     public function findByWord($word)
     {
+//        Request DQL(Doctrine Query Language):
         $qd = $this->createQueryBuilder('a');
         $query = $qd->select('a')
             ->where('a.title LIKE :word')
             ->setParameter('word', '%'.$word.'%')
             ->getQuery();
-
+//        Requete SQL(Structured Query Language) : SELECT * FROM a(Game) WHERE a.title LIKE '%$word%'
         $resultats = $query->getArrayResult();
         return $resultats;
     }

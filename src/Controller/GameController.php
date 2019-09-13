@@ -7,6 +7,7 @@ use App\Entity\Game;
 use App\Form\CommentType;
 use App\Form\GameType;
 use App\Repository\GameRepository;
+use App\Repository\PublisherRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -33,13 +34,18 @@ class GameController extends AbstractController
     /**
      * @Route("/games/search", name="games_search")
      */
-    public function gameSearch(GameRepository $gameRepository, Request $request)
+    public function gameSearch(GameRepository $gameRepository, PublisherRepository $publisherRepository, Request $request)
     {
+
+
+
         $word = $request->query->get('title');
         $gameTitle = $gameRepository->findByWord($word);
+
         return $this->render('game/games_search.html.twig',
             [
-                'gameTitle'=> $gameTitle
+                'gameTitle'=> $gameTitle,
+
 
             ]);
     }

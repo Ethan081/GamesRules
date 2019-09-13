@@ -5,9 +5,11 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\GameRepository")
@@ -21,13 +23,24 @@ class Game
      * @ORM\Column(type="integer")
      */
     private $id;
+
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *     min="5",
+     *     max="50",
+     *     minMessage="Votre titre de jeu est trop court",
+     *     maxMessage="Le titre du jeu est trop long"
+     * )
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\Length(
+     *     min="10",
+     *     minMessage="il vous faut un minimum de 10 lettres pour la description"
+     * )
      */
     private $description;
 
@@ -69,6 +82,10 @@ class Game
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Url(
+     *     protocols = {"http", "https", "ftp"},
+     *     message = "The url '{{ value }}' is not a valid url",
+     * )
      */
     private $rule;
     // -----------------------------

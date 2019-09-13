@@ -32,16 +32,16 @@ class AdminGameController extends AbstractController
     public function form(Game $game = null, Request $request, EntityManagerInterface $entityManager)
     {
 //        Si ce n est un nouveau est un nouvelle article
-//        j 'instancie un l entite Game
+//        j 'instancie un l,entite Game
         if (!$game){
             $game = new Game();
         }
-//       J assigne a $form la creation d'un formumaire et je lui lie mon instance de class Game($game)
+        //J'assigne a $form la creation d'un formumaire et je lui lie mon instance de class Game($game)
         $form = $this->createForm(GameType::class, $game);
-//        je demande au formulaire de gerer ma  request
+        //Je demande au formulaire de gerer ma  request
         $form->handleRequest($request);
 
-        // Je verifie si la requet est remplie de donnees.
+        //Je verifie si la requet est remplie de donnees.
         dump($request);
 
         //Si le form et envoyer et valider
@@ -53,7 +53,7 @@ class AdminGameController extends AbstractController
             //J envoie et persiste en base de bonnee
             $entityManager->persist($game);
             $entityManager->flush();
-            $this->addFlash('success', 'Enregistrer avec Success' );
+            $this->addFlash('success', 'Enregistré avec Success' );
             //On recupere la valeur du fichier selectionner
 //            return $this->redirectToRoute('games_show', ['id' => $game->getId()]);
             return $this->redirectToRoute('admin_page');
@@ -83,7 +83,8 @@ class AdminGameController extends AbstractController
         $entityManager->flush();
         $this->addFlash('success', 'Le Jeux ' .$game->getTitle().' a bien ete supprime' );
 
-//        return new Response('Le Jeux ' .$game->getTitle().' a bien ete supprime');
+        return $this->redirectToRoute('admin_page');
+
     }
 
 //-----------------------------------------------------------

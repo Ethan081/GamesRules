@@ -3,11 +3,21 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        {#   Meta description    #}
+        <meta name="description" content="Game Rules est un site de recherche de règle de jeu de société" />
+        <meta name="keyword" content="rule, game, board, jeu, regle, societe" />
+        <link rel="icon" type="image/png" href="{{ asset('assets/img/favIconGameRules.png') }}" />
+        <title>{% block title %}Game Rules{% endblock %}</title>
         {% block bootstrap %}{% endblock %}
+        {#   GoogleFont     #}
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Source+Sans+Pro&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        {#  Bootstrap    #}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        {#   FontAwesome    #}
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" integrity="sha384-rtJEYb85SiYWgfpCr0jn174XgJTn4rptSOQsMroFBPQSGLdOC5IbubP6lJ35qoM9" crossorigin="anonymous">
+        {#   JQuery   #}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     </head>
     <body>
@@ -15,11 +25,12 @@
             <nav class="navbar">
                 <div class="logo">
                     <img src="{{asset('assets/img/logo_Game_rules.png')}}" alt="">
+
                 </div>
 
                 <li class="links">
                     <ul class="links">
-                        <li><a href="{{ path('home') }}">Acceuil</a></li>
+                        <li><a href="{{ path('home') }}">Accueil</a></li>
                         <li><a href="{{ path('games') }}">Jeux</a></li>
                         {% if is_granted('ROLE_USER') %}
                             <li><a href="{{ path('game_create') }}">Create</a></li>
@@ -45,6 +56,7 @@
         {% endblock %}
         {% block footer %}
         {% endblock %}
+            <script type="text/javascript" src="assets/js/script.js"></script>
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

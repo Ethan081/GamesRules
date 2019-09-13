@@ -1,28 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello GamesRulesController!{% endblock %}
+{% block title %}Games Rules{% endblock %}
 
 {% block main %}
 <main>
     <container >
-            <article class="row search-box" >
-                <div class="col-12 col-lg-12 d-flex justify-content-center" >
-                    <h1>Quel regle de jeux cherchez-vous?</h1>
-                </div>
-                <div class="col-12 col-lg-12 d-flex justify-content-center search-bar" >
-                    <form class="form-inline " action="{{ path('games_search') }}" method="get">
-                        <div class="input-group">
-                            <input class="form-control" type="text" placeholder="Titre du jeu..." name="title">
-                            <button type="button" class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
-                        </div>
-                    </form>
-                </div>
-            </article>
+        <article class="row search-box" >
+            <div class="col-12 col-lg-12 d-flex justify-content-center" >
+                <h1>Quelle règle de jeu cherchez-vous?</h1>
+            </div>
+            <div class="col-12 col-lg-12 d-flex justify-content-center search-bar" >
+                <form class="form-inline " action="{{ path('games_search') }}" method="get">
+                    <div class="input-group">
+                        <input class="form-control " type="text" placeholder="Titre du jeu..." name="title">
+                        <button type="button"  class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
+                    </div>
+                </form>
+            </div>
+        </article>
     </container>
     <section>
         <article class="row d-flex justify-content-start m-4">
             <div class="col-12 col-lg-12 article-text" >
-                <h2>Derniere Regle de jeux ajoutees</h2>
+                <h2>Derniere Règle de jeux ajoutees</h2>
             </div>
             {% for game in games|slice(-4) %}
                 <div class="card col-8 col-lg-3">

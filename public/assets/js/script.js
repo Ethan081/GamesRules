@@ -14,9 +14,9 @@ $("input").keyup(function(){
     }
 });
 
-//-----------------Faire apparaitre et disparaitre le nom sur les cartes jeux----------------
+//-----------------Anim cartes jeux----------------
 $(function(){
-    $(".card").click(function(){
-        $("h4").toggle();
+    $("#cardJs").click(function(){
+
     });
 });

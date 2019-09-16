@@ -6,6 +6,9 @@
 @import'font';
 @import'admin';
 @import'comment';
+@import'media-queries';
+@import'menu-burger';
+@import'color';
 
 #game-form{
   width: 100%;
@@ -48,4 +51,8 @@
 .list-text{
   font-family: $titre;
   margin: 40px;
+}
+
+.logo-head{
+  width: 100%;
 }

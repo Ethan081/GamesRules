@@ -4,19 +4,20 @@
 
 {% block main %}
     <section>
-        <article class="row d-flex justify-content-center">
-            <div class="col-12 col-lg-12 list-text d-flex justify-content-center" >
-                <h1>Tous les jeux disponibles</h1>
-            </div>
-            {% for elem in gameTitle %}
-                <div class="card col-8 col-lg-3">
-                    <img class="card-img-top" src="{{ asset('assets/img/pictures') }}/{{ elem.picture }}" alt="Card image cap">
-                    <div class="card-body">
-                        <a href="{{ path('games_show', {'id': elem.id}) }}"><h4>{{ elem.title }}</h4></a>
-                    </div>
+        <div class="container">
+            <article class="row d-flex justify-content-center">
+                <div class="col-12 my-5 text-center" >
+                    <h3>Les jeux trouvés</h3>
                 </div>
-            {% endfor %}
-        </article>
+                <div class="row d-flex justify-content-center">
+                    {% for elem in gameTitle%}
+                        <div class="card bg-secondary col-12 m-2 p-2">
+                            <img class="card-img-top rounded" src="{{ asset('assets/img/pictures') }}/{{ elem.picture }}" alt="Card image cap">
+                            <a class="btn btn-secondary active mt-2" href="{{ path('games_show', {'id': elem.id}) }}" role="button">{{ elem.title }}</a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </article>
+        </div>
     </section>
-
 {% endblock %}

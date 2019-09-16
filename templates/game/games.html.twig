@@ -3,20 +3,21 @@
 {% block title %}All Games{% endblock %}
 
 {% block main %}
-
     <section>
-        <article class="row d-flex justify-content-center">
-            <div class="col-12 col-lg-12 list-text d-flex justify-content-center" >
-                <h1>Tous les jeux disponibles</h1>
-            </div>
-            {% for game in games%}
-                <div class="card col-8 col-lg-3">
-                    <img class="card-img-top" src="{{ asset('assets/img/pictures') }}/{{ game.picture }}" alt="Card image cap">
-                    <div class="card-body">
-                        <a href="{{ path('games_show', {'id': game.id}) }}"><h4>{{ game.title }}</h4></a>
-                    </div>
+        <div class="container">
+            <article class="row d-flex justify-content-center">
+                <div class="col-12 text-center my-5" >
+                    <h3>Tous les jeux disponibles</h3>
                 </div>
-            {% endfor %}
-        </article>
+                <div class="row d-flex justify-content-center">
+                    {% for game in games%}
+                        <div class="card bg-secondary col-5 m-2 p-2">
+                            <img class="card-img-top rounded" src="{{ asset('assets/img/pictures') }}/{{ game.picture }}" alt="Card image cap">
+                            <a class="btn btn-secondary  mt-2" href="{{ path('games_show', {'id': game.id}) }}" role="button">{{ game.title }}</a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </article>
+        </div>
     </section>
 {% endblock %}

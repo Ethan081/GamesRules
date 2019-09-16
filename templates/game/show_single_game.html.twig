@@ -3,33 +3,45 @@
 {% block title %}{{ game.title }}{% endblock %}
 
 {% block main %}
-    <section class="game-section">
-        <article class="game-article">
-            <div class="game-info">
-                <div class="game-img">
-                    <img src="{{ asset('assets/img/pictures') }}/{{ game.picture }}" alt="" class="resp">
-                </div>
-                <div class="game-detail">
-                    <div class="game-title">{{ game.title }}</div>
-                    <div class="game-publisher">Edition: {{ game.publisher.title }}</div>
-                    <div class="game-category">Categorie: {{ game.category.title }}</div>
-                    <a href="{{ game.rule }}"  target="_blank"><button class="button-rule">Regle du Jeu</button></a>
-                </div>
-            </div>
-            <div class="game-description"><p>{{ game.description }}</p></div>
-        </article>
-    </section>
-    <section class="comment-box">
-        {% for comment in game.comments %}
-            <div class="card-comment border-secondary mb-3" >
-                <div class="card-header">{{ comment.author }} (<small>{{ comment.createdAt|date('d/m/Y') }}</small>)</div>
-                <div class="card-body text-secondary">
+    {#-------------------------------Game details---------------------------#}
+    <section>
+        <div class="container">
+            <article class="row d-flex justify-content-center">
+                <div class="card m-3">
+                    <img class="card-img-top" src="{{ asset('assets/img/pictures') }}/{{ game.picture }}" alt="">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ game.title }}</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item ">{{ game.publisher.title }}</li>
+                        <li class="list-group-item ">{{ game.category.title }}</li>
 
-                    <p class="card-text">{{ comment.content }}</p>
+                        <li class="list-group-item"><a class="btn btn-info btn-lg btn-block  mt-2" href="{{ game.rule }}"  target="_blank" role="button">Règle du Jeu</a>
+                        </li>
+                    </ul>
+                    <div class="card-body">
+                        <p class="card-text">{{ game.description }}</p>
+                    </div>
                 </div>
-            </div>
-        {% endfor %}
+            </article>
+        </div>
     </section>
+{#-------------------------------Comment---------------------------#}
+    <section>
+        <div class="container">
+            <article class="row d-flex justify-content-center">
+                {% for comment in game.comments %}
+                    <div class="card text-white bg-secondary mb-3">
+                        <div class="card-header">{{ comment.author }} (<small>{{ comment.createdAt|date('d/m/Y') }}</small>)</div>
+                        <div class="card-body bg-light text-secondary">
+                            <p class="card-text">{{ comment.content }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </article>
+        </div>
+    </section>
+    {#-------------------------------Add Comment as Connected---------------------------#}
     {% if is_granted('ROLE_USER') %}
         <div class="row justify-content-center">
             <div class="col-md-6 col-md-offset-3">

@@ -1,0 +1,27 @@
+@media screen and(max-width: 576px){
+
+  .links{
+    display: none;
+  }
+  .admin-lg{
+    display: none;
+  }
+
+
+  .logo{
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media screen and(min-width: 576px){
+  .admin-sm{
+    display: none;
+  }
+  .menu-wrap{
+    display: none;
+  }
+  .message-connected{
+    display: none;
+  }
+}

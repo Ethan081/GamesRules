@@ -4,35 +4,45 @@
 
 {% block main %}
 <main>
-    <container >
-        <article class="row search-box" >
-            <div class="col-12 col-lg-12 d-flex justify-content-center" >
-                <h1>Quelle règle de jeu cherchez-vous?</h1>
-            </div>
-            <div class="col-12 col-lg-12 d-flex justify-content-center search-bar" >
-                <form class="form-inline " action="{{ path('games_search') }}" method="get">
-                    <div class="input-group">
-                        <input class="form-control " type="text" placeholder="Titre du jeu..." name="title">
-                        <button type="button"  class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
-                    </div>
-                </form>
-            </div>
-        </article>
-    </container>
     <section>
-        <article class="row d-flex justify-content-start m-4">
-            <div class="col-12 col-lg-12 article-text" >
-                <h2>Derniere Règle de jeux ajoutees</h2>
-            </div>
-            {% for game in games|slice(-4) %}
-                <div class="card col-8 col-lg-3">
-                    <img class="card-img-top" src="{{ asset('assets/img/pictures') }}/{{ game.picture }}" alt="Card image cap">
-                    <div class="card-body">
-                        <a href="{{ path('games_show', {'id': game.id}) }}"><h4>{{ game.title }}</h4></a>
-                    </div>
+        <div class="container search-box" >
+            <article class="row align-items-center" >
+                <div class="col-12 text-center " >
+                    <h3>Quelle règle de jeu cherchez-vous?</h3>
                 </div>
-            {% endfor %}
-        </article>
+            </article>
+            <article class="row align-items-center search-bar" >
+                <div class="col-12 col-lg-8 text-center" >
+                    <form class="form-inline " action="{{ path('games_search') }}" method="get">
+                        <div class="input-group">
+                            <input class="form-control " type="text" placeholder="Titre du jeu..." name="title">
+                            <button type="button"  class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </article>
+        </div>
+    </section>
+    <section>
+        <div class="container" >
+            <article class="row">
+                <div class="col-12" >
+                    <h5>Derniere Règle de jeux ajoutees</h5>
+                </div>
+            </article>
+            <article class="row justify-content-center">
+                {% for game in games|slice(-4) %}
+                    <div class="card-game-home col-8" id="cardJs">
+                        <a href="{{ path('games_show', {'id': game.id}) }}">
+                            <img class="card-game-home-img" src="{{ asset('assets/img/pictures') }}/{{ game.picture }}" alt="Card image cap">
+                        </a>
+{#                        <div class="card-body">#}
+{#                            <a href="{{ path('games_show', {'id': game.id}) }}"><h4>{{ game.title }}</h4></a>#}
+{#                        </div>#}
+                    </div>
+                {% endfor %}
+            </article>
+        </div>
     </section>
 </main>
 {% endblock %}

@@ -276,6 +276,10 @@ img {
     left: 50%;
     transform: translate(50%, 50%);
   }
+
+  .detail-game-lg {
+    display: none;
+  }
 }
 @media screen and (min-width: 576px) {
   .admin-sm {
@@ -301,6 +305,10 @@ img {
     top: 55%;
     left: 50%;
     transform: translate(50%, 50%);
+  }
+
+  .detail-game-sm {
+    display: none;
   }
 }
 .menu-wrap {

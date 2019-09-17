@@ -4,11 +4,11 @@
 
 {% block main %}
     {#-------------------------------Game details---------------------------#}
-    <section>
+    <section class="detail-game-sm">
         <div class="container">
             <article class="row d-flex justify-content-center">
-                <div class="card m-3">
-                    <img class="card-img-top" src="{{ asset('assets/img/pictures') }}/{{ game.picture }}" alt="">
+                <div class="card m-3 col-10">
+                    <img class="card-img-top mt-3" src="{{ asset('assets/img/pictures') }}/{{ game.picture }}" alt="">
                     <div class="card-body text-center">
                         <h5 class="card-title">{{ game.title }}</h5>
                     </div>
@@ -26,25 +26,54 @@
             </article>
         </div>
     </section>
-{#-------------------------------Comment---------------------------#}
-    <section>
+    <section class="detail-game-lg">
         <div class="container">
             <article class="row d-flex justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card-header bg-secondary text-light">
+                        <h2 class="card-text">{{ game.title }}</h2>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <img class="card-img-top p-4" src="{{ asset('assets/img/pictures') }}/{{ game.picture }}" alt="">
+                </div>
+                <div class="col-lg-5">
+                    <ul class="list-group text-center ">
+                        <li class="list-group-item my-4">{{ game.publisher.title }}</li>
+                        <li class="list-group-item my-4">{{ game.category.title }}</li>
+                        <li class="list-group-item my-4"><a class="btn btn-info btn-lg btn-block" href="{{ game.rule }}"  target="_blank" role="button">Règle du Jeu</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-10">
+                    <div class="card-footer bg-secondary text-light">
+                        <p class="card-text">{{ game.description }}</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+{#-------------------------------Comment---------------------------#}
+    <section>
+        <div class="container mt-5">
+            <article class="row d-flex flex-column align-items-center">
                 {% for comment in game.comments %}
-                    <div class="card text-white bg-secondary mb-3">
-                        <div class="card-header">{{ comment.author }} (<small>{{ comment.createdAt|date('d/m/Y') }}</small>)</div>
-                        <div class="card-body bg-light text-secondary">
-                            <p class="card-text">{{ comment.content }}</p>
+                    <div class="col-8 col-lg-8">
+                        <div class="card border-info mt-4">
+                            <div class="card-header">{{ comment.author }} (<small>{{ comment.createdAt|date('d/m/Y') }}</small>)</div>
+                            <div class="card-body text-info">
+                                <p class="card-text">{{ comment.content }}</p>
+                            </div>
                         </div>
                     </div>
+
                 {% endfor %}
             </article>
         </div>
     </section>
     {#-------------------------------Add Comment as Connected---------------------------#}
     {% if is_granted('ROLE_USER') %}
-        <div class="row justify-content-center">
-            <div class="col-md-6 col-md-offset-3">
+        <div class="row justify-content-center mt-5">
+            <div class="col-10 col-lg-6">
                 <div class="comment-form">
                     {{ form_start(commentForm) }}
                     {{ form_row(commentForm.author, {'attr':{'placeholder' : "Votre nom"}}) }}

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+
+<p>{% if firstname != '' %} {{ firstname }} {% endif %} {% if lastname != '' %} {{ lastname }} {% endif %}
+    vous a envoyé un message.
+</p>
+
+<p>{{ message }}</p>
+
+<p>Prenom: {% if firstname != '' %} {{ firstname }} {% endif %}</p>
+<p>Nom: {% if lastname != '' %} {{ lastname }} {% endif %}</p>
+<p>Email: {% if email != '' %} {{ email }} {% endif %}</p>
+<p>Téléphone: {% if phone != '' %} {{ phone }} {% endif %}</p>
+
+</body>
+</html>

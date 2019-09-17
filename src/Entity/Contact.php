@@ -20,6 +20,7 @@ class Contact
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank(message="Ce champ ne doit pas être vide.")
      */
     private $firstname;
 
@@ -36,14 +37,14 @@ class Contact
 
     /**
      * @ORM\Column(type="string")
-     * @Assert\Email(
-     *     message = "The email '{{ value }}' is not a valid email. "
-     * )
+     * @Assert\NotBlank(message="Ce champ ne doit pas être vide.")
+     * @Assert\Email(message="Vous devez saisir une adresse mail valide.")
      */
     private $email;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="Ce champ ne doit pas être vide.")
      */
     private $message;
 

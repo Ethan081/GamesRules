@@ -1,3 +1,4 @@
+//smartphone @media
 @media screen and(max-width: 576px){
 
   .links{
@@ -6,14 +7,29 @@
   .admin-lg{
     display: none;
   }
-
-
   .logo{
     width: 100%;
     margin-left: 0;
   }
+  //--------Search Bar----------------
+  .search-anim{
+    width: 100%;
+    height: 100px;
+    margin: 100px 0;
+  }
+  #content {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(50%, 50%);
+  }
 }
 
+
+
+
+
+//laptop @media
 @media screen and(min-width: 576px){
   .admin-sm{
     display: none;
@@ -23,5 +39,17 @@
   }
   .message-connected{
     display: none;
+  }
+  //--------Search Bar----------------
+  .search-anim{
+    width: 100%;
+    height: 100px;
+    margin: 50px 0;
+  }
+  #content {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(50%, 50%);
   }
 }

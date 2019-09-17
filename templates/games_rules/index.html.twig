@@ -5,19 +5,15 @@
 {% block main %}
 <main>
     <section>
-        <div class="container search-box" >
-            <article class="row align-items-center" >
-                <div class="col-12 text-center " >
+        <div class="container my-5" >
+            <article class="row " >
+                <div class="col-12 col-lg-12 text-center" >
                     <h3>Quelle règle de jeu cherchez-vous?</h3>
                 </div>
-            </article>
-            <article class="row align-items-center search-bar" >
-                <div class="col-12 col-lg-8 text-center" >
-                    <form class="form-inline " action="{{ path('games_search') }}" method="get">
-                        <div class="input-group">
-                            <input class="form-control " type="text" placeholder="Titre du jeu..." name="title">
-                            <button type="button"  class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
-                        </div>
+                <div class="search-anim" >
+                    <form id="content" action="{{ path('games_search') }}" method="get">
+                        <input type="text" name="title" class="input" id="search-input">
+                        <button type="button" class="search" id="search-btn"></button>
                     </form>
                 </div>
             </article>
@@ -32,13 +28,10 @@
             </article>
             <article class="row justify-content-center">
                 {% for game in games|slice(-4) %}
-                    <div class="card-game-home col-8" id="cardJs">
+                    <div class="card-game-home col-8 col-lg-2" id="cardJs">
                         <a href="{{ path('games_show', {'id': game.id}) }}">
                             <img class="card-game-home-img" src="{{ asset('assets/img/pictures') }}/{{ game.picture }}" alt="Card image cap">
                         </a>
-{#                        <div class="card-body">#}
-{#                            <a href="{{ path('games_show', {'id': game.id}) }}"><h4>{{ game.title }}</h4></a>#}
-{#                        </div>#}
                     </div>
                 {% endfor %}
             </article>

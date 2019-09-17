@@ -48,7 +48,7 @@
                                 <li><a href="{{ path('admin_page') }}">Admin</a></li>
                                 <li><a href="{{ path('fos_user_security_logout') }}">LogOut</a></li>
                             {% else %}
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="{{ path('contact') }}">Contact</a></li>
                                 <li><a href="{{ path('fos_user_registration_register') }}">SignIn</a></li>
                                 <li><a href="{{ path('admin_page') }}">LogIn</a></li>
                             {% endif %}
@@ -69,7 +69,7 @@
                             <li><a href="{{ path('admin_page') }}">Admin</a></li>
                             <li><a href="{{ path('fos_user_security_logout') }}">LogOut</a></li>
                         {% else %}
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="{{ path('contact') }}">Contact</a></li>
                             <li><a href="{{ path('fos_user_registration_register') }}">SignIn</a></li>
                             <li><a href="{{ path('admin_page') }}">LogIn</a></li>
                         {% endif %}

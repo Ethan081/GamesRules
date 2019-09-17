@@ -1,7 +1,7 @@
 // ----------Securisation de mon form a l aide d un RegExp------------------
 
 //Je verfie les charactere entree dans le champ input
-$("input").keyup(function(){
+$("#search-bar").keyup(function(){
     //J'assigne à ma variable value la valeur de mon input
     var value = $( this ).val();
     //Je créé une variable qui contient mon RegExp
@@ -20,3 +20,14 @@ $(function(){
 
     });
 });
+
+//--------------------SearchBar-------------------------
+const input = document.getElementById("search-input");
+const searchBtn = document.getElementById("search-btn");
+
+const expand = () => {
+    searchBtn.classList.toggle("close");
+    input.classList.toggle("square");
+};
+
+searchBtn.addEventListener("click", expand);

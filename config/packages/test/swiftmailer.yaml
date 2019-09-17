@@ -1,2 +1,7 @@
 swiftmailer:
-    disable_delivery: true
+    encryption: ssl
+    auth_mode:  login
+    host:      smtp.gmail.com
+    username:  etienne.ziegelmeyer@lapiscine.pro
+    password:  Etienneestalapiscine
+    transport: gmail

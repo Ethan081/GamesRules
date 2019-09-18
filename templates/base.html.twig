@@ -21,43 +21,44 @@
         <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     </head>
     <body>
-        <div class="logo">
-            <img src="{{asset('assets/img/logo_Game_rules.png')}}" alt="">
-        </div>
-        <div class="message-connected">
-            {% if is_granted('ROLE_USER') %}
-                <div class="alert alert-success d-flex justify-content-center" role="alert">
-                    {% if app.user %}
-                        <span>Bonjour {{ app.user.username}}.</span>
-                    {% endif %}
-                </div>
-            {% endif %}
-        </div>
-        {#    Menu   ecran smartphone    #}
-        <div class="menu-wrap">
-            <input type="checkbox" class="toggler">
-            <div class="hamburger"><div></div></div>
-            <div class="menu">
-                <div>
+        <header>
+            <div class="logo">
+                <img src="{{asset('assets/img/logo_Game_rules.png')}}" alt="">
+            </div>
+            <div class="message-connected">
+                {% if is_granted('ROLE_USER') %}
+                    <div class="alert alert-success d-flex justify-content-center" role="alert">
+                        {% if app.user %}
+                            <span>Bonjour {{ app.user.username}}.</span>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            </div>
+            {#    Menu   ecran smartphone    #}
+            <div class="menu-wrap">
+                <input type="checkbox" class="toggler">
+                <div class="hamburger"><div></div></div>
+                <div class="menu">
                     <div>
-                        <ul>
-                            <li><a href="{{ path('home') }}">Accueil</a></li>
-                            <li><a href="{{ path('games') }}">Jeux</a></li>
-                            {% if is_granted('ROLE_USER') %}
-                                <li><a href="{{ path('game_create') }}">Create</a></li>
-                                <li><a href="{{ path('admin_page') }}">Admin</a></li>
-                                <li><a href="{{ path('fos_user_security_logout') }}">LogOut</a></li>
-                            {% else %}
-                                <li><a href="{{ path('contact') }}">Contact</a></li>
-                                <li><a href="{{ path('fos_user_registration_register') }}">SignIn</a></li>
-                                <li><a href="{{ path('admin_page') }}">LogIn</a></li>
-                            {% endif %}
-                        </ul>
+                        <div>
+                            <ul>
+                                <li><a href="{{ path('home') }}">Accueil</a></li>
+                                <li><a href="{{ path('games') }}">Jeux</a></li>
+                                {% if is_granted('ROLE_USER') %}
+                                    <li><a href="{{ path('game_create') }}">Create</a></li>
+                                    <li><a href="{{ path('admin_page') }}">Admin</a></li>
+                                    <li><a href="{{ path('fos_user_security_logout') }}">LogOut</a></li>
+                                {% else %}
+                                    <li><a href="{{ path('contact') }}">Contact</a></li>
+                                    <li><a href="{{ path('fos_user_registration_register') }}">SignIn</a></li>
+                                    <li><a href="{{ path('admin_page') }}">LogIn</a></li>
+                                {% endif %}
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <header>
+
             <nav class="navbar">
                 {#    Menu   ecran ordinateur    #}
                 <li class="links">
@@ -86,11 +87,36 @@
         </header>
         {% block main %}
         {% endblock %}
-        {% block footer %}
-        {% endblock %}
-            <script type="text/javascript" src="assets/js/script.js"></script>
-            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <footer>
+            <div class="footer mt-5">
+                <div class="row d-flex justify-content-around align-items-center ">
+                    <div class="col-2 col-lg-2 text-center">
+                        <span style="font-size: 3em; color: Dodgerblue;"><i class="fab fa-facebook-square"></i></span>
+                    </div>
+                    <div class="col-2 col-lg-2 text-center">
+                        <span style="font-size: 3em; color: Mediumslateblue;"><i class="fab fa-discord"></i></span>
+                    </div>
+                    <div id="logo-footer" class="col-1 col-lg-4">
+                        <div class="logo">
+                            <a href="{{ path('home') }}"><img src="{{asset('assets/img/logo_Game_rules.png')}}" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-2 col-lg-2 text-center">
+                        <span style="font-size: 3em; color: Dodgerblue;"><i class="fab fa-twitter"></i></span>
+                    </div>
+                    <div class="col-2 col-lg-2 text-center">
+                        <span style="font-size: 3em; color: Tomato;"><i class="fab fa-instagram"></i></span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div id="back-to-top">
+            <a href="#" style="font-size: 3em;"><i class="fas fa-arrow-circle-up"></a>
+        </div>
+        {#JavaScript Part#}
+        <script type="text/javascript" src="assets/js/script.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </body>
 </html>

@@ -37,8 +37,6 @@ class GameController extends AbstractController
     public function gameSearch(GameRepository $gameRepository, PublisherRepository $publisherRepository, Request $request)
     {
 
-
-
         $word = $request->query->get('title');
         $gameTitle = $gameRepository->findByWord($word);
 

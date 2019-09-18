@@ -20,8 +20,11 @@
 .card-game-home:hover {
   box-shadow: 0 8px 20px 0 rgba(0,0,0,0.4);
   transform: scale(1);
+  filter: brightness(1.1);
 
 }
 .card-game-home-img{
   width: 100%;
 }
+
+

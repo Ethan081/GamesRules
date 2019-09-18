@@ -3,24 +3,39 @@
 {% block title %}Game Rules{% endblock %}
 
 {% block main %}
+{#    {{ dump(gameTitle) }}#}
     <section>
         <div class="container">
-            <article class="row d-flex justify-content-center">
-                <div class="col-12 my-5 text-center" >
-                    {% if gameTitle|length(1) %}
+            <article >
+                {% if gameTitle is empty%}
+                    <div class=" bg-secondary text-light rounded col-10 my-5 text-center p-2" >
+                        <h2>Désolé la règle de ce Jeu n'est pas encore disponible</h2>
+                    </div>
+                {% elseif gameTitle|length < 2 %}
+                    <div class="col-12 my-5 text-center" >
                         <h2>Le jeu trouvé</h2>
-                    {% else %}
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                        {% for elem in gameTitle%}
+                            <div class="card bg-secondary col-8 col-lg-4 m-2 p-2">
+                                <img class="card-img-top rounded" src="{{ asset('assets/img/pictures') }}/{{ elem.picture }}" alt="Card image cap">
+                                <a class="btn btn-secondary active mt-2" href="{{ path('games_show', {'id': elem.id}) }}" role="button">{{ elem.title }}</a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="col-12 my-5 text-center" >
                         <h2>Les jeux trouvés</h2>
-                    {% endif %}
-                </div>
-                <div class="row d-flex justify-content-center">
-                    {% for elem in gameTitle%}
-                        <div class="card bg-secondary col-12 m-2 p-2">
-                            <img class="card-img-top rounded" src="{{ asset('assets/img/pictures') }}/{{ elem.picture }}" alt="Card image cap">
-                            <a class="btn btn-secondary active mt-2" href="{{ path('games_show', {'id': elem.id}) }}" role="button">{{ elem.title }}</a>
-                        </div>
-                    {% endfor %}
-                </div>
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                        {% for elem in gameTitle%}
+                            <div class="card bg-secondary col-8 col-lg-4 m-2 p-2">
+                                <img class="card-img-top rounded" src="{{ asset('assets/img/pictures') }}/{{ elem.picture }}" alt="Card image cap">
+                                <a class="btn btn-secondary active mt-2" href="{{ path('games_show', {'id': elem.id}) }}" role="button">{{ elem.title }}</a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
             </article>
         </div>
     </section>

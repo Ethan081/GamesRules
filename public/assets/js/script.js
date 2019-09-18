@@ -14,10 +14,32 @@ $("#search-bar").keyup(function(){
     }
 });
 
-//-----------------Anim cartes jeux----------------
-$(function(){
-    $("#cardJs").click(function(){
+//-----------------Scroll return Up JQuery----------------
+$(document).ready(function(){
 
+    $('#back-to-top').click(function(){
+
+        $('html').animate({
+
+            scrollTop:0
+
+        }, 'slow');
+
+    });
+});
+
+$(document).ready(function() {
+
+    $(window).scroll(function(){
+
+        if ($(window).scrollTop() >= 300) {
+
+            document.querySelector('#back-to-top').classList.add('visible');
+
+        } else {
+
+            document.querySelector('#back-to-top').classList.remove('visible');
+        }
     });
 });
 

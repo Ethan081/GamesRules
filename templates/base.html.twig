@@ -17,7 +17,8 @@
         {#   FontAwesome    #}
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" integrity="sha384-rtJEYb85SiYWgfpCr0jn174XgJTn4rptSOQsMroFBPQSGLdOC5IbubP6lJ35qoM9" crossorigin="anonymous">
         {#   JQuery   #}
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
         <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     </head>
     <body>
@@ -58,7 +59,6 @@
                     </div>
                 </div>
             </div>
-
             <nav class="navbar">
                 {#    Menu   ecran ordinateur    #}
                 <li class="links">
@@ -85,8 +85,10 @@
                 </li>
             </nav>
         </header>
+
         {% block main %}
         {% endblock %}
+        <button id="topBtn"><i class="fas fa-arrow-up"></i></button>
         <footer>
             <div class="footer mt-5">
                 <div class="row d-flex justify-content-around align-items-center ">
@@ -96,9 +98,9 @@
                     <div class="col-2 col-lg-2 text-center">
                         <span style="font-size: 3em; color: Mediumslateblue;"><i class="fab fa-discord"></i></span>
                     </div>
-                    <div id="logo-footer" class="col-1 col-lg-4">
-                        <div class="logo">
-                            <a href="{{ path('home') }}"><img src="{{asset('assets/img/logo_Game_rules.png')}}" alt=""></a>
+                    <div class="col-1 col-lg-4">
+                        <div id="logo-footer" >
+                            <a href="{{ path('home') }}"><img src="{{asset('assets/img/Logo_gameRules4.png')}}" alt="" class="resp"></a>
                         </div>
                     </div>
                     <div class="col-2 col-lg-2 text-center">
@@ -110,13 +112,10 @@
                 </div>
             </div>
         </footer>
-        <div id="back-to-top">
-            <a href="#" style="font-size: 3em;"><i class="fas fa-arrow-circle-up"></a>
-        </div>
         {#JavaScript Part#}
         <script type="text/javascript" src="assets/js/script.js"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+{#        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>#}
+{#        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>#}
+{#        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>#}
     </body>
 </html>

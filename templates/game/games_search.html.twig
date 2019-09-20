@@ -6,9 +6,9 @@
 {#    {{ dump(gameTitle) }}#}
     <section>
         <div class="container">
-            <article >
+            <article class="row  d-flex justify-content-center m-5">
                 {% if gameTitle is empty%}
-                    <div class=" bg-secondary text-light rounded col-10 my-5 text-center p-2" >
+                    <div class=" bg-secondary text-light rounded col-10 col-lg-10 my-5 text-center p-2" >
                         <h2>Désolé la règle de ce Jeu n'est pas encore disponible</h2>
                     </div>
                 {% elseif gameTitle|length < 2 %}
@@ -17,7 +17,7 @@
                     </div>
                     <div class="row d-flex justify-content-center">
                         {% for elem in gameTitle%}
-                            <div class="card bg-secondary col-8 col-lg-4 m-2 p-2">
+                            <div class="card bg-secondary col-8 col-lg-8 m-2 p-2">
                                 <img class="card-img-top rounded" src="{{ asset('assets/img/pictures') }}/{{ elem.picture }}" alt="Card image cap">
                                 <a class="btn btn-secondary active mt-2" href="{{ path('games_show', {'id': elem.id}) }}" role="button">{{ elem.title }}</a>
                             </div>

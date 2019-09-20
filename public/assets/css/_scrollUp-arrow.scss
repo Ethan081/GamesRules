@@ -1,19 +1,17 @@
-#back-to-top {
+@import'color';
 
-  width: 30px;
-  height: 30px;
+#topBtn{
+  width: 40px;
+  height: 40px;
+  position:fixed;
+  bottom: 40px;
+  right: 40px;
+  font-size: 22px;
+  background-color: $primary-color;
+  color: $lightgray;
   border-radius: 5px;
-  position: fixed;
-  right: -60px;
-  bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border: none;
   cursor: pointer;
-  transition: all linear 0.2s;
-}
-
-
-.visible {
-  right: 20px!important;
+  z-index: 3;
+  display: none;
 }

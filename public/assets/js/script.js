@@ -1,7 +1,7 @@
 // ----------Securisation de mon form a l aide d un RegExp------------------
 
 //Je verfie les charactere entree dans le champ input
-$("#search-bar").keyup(function(){
+$("#search-input").keyup(function(){
     //J'assigne à ma variable value la valeur de mon input
     var value = $( this ).val();
     //Je créé une variable qui contient mon RegExp
@@ -14,35 +14,19 @@ $("#search-bar").keyup(function(){
     }
 });
 
-//-----------------Scroll return Up JQuery----------------
+//-----------------Scroll Up JQuery----------------
 $(document).ready(function(){
-
-    $('#back-to-top').click(function(){
-
-        $('html').animate({
-
-            scrollTop:0
-
-        }, 'slow');
-
-    });
-});
-
-$(document).ready(function() {
-
     $(window).scroll(function(){
-
-        if ($(window).scrollTop() >= 300) {
-
-            document.querySelector('#back-to-top').classList.add('visible');
-
-        } else {
-
-            document.querySelector('#back-to-top').classList.remove('visible');
-        }
+        if($(this).scrollTop() > 40){
+        $('#topBtn').fadeIn();
+    }else{
+        $('#topBtn').fadeOut();
+    }
+    });
+    $("#topBtn").click(function(){
+        $('html, body').animate({scrollTop:0},800);
     });
 });
-
 //--------------------SearchBar-------------------------
 const input = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-btn");

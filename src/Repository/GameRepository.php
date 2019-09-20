@@ -23,12 +23,12 @@ class GameRepository extends ServiceEntityRepository
     public function findByWord($word)
     {
 //        Request DQL(Doctrine Query Language):
-        $qd = $this->createQueryBuilder('a');
-        $query = $qd->select('a')
-            ->where('a.title LIKE :word')
+        $qd = $this->createQueryBuilder('g');
+        $query = $qd->select('g')
+            ->where('g.title LIKE :word')
             ->setParameter('word', '%'.$word.'%')
             ->getQuery();
-//        Requete SQL(Structured Query Language) : SELECT * FROM a(Game) WHERE a.title LIKE '%$word%'
+//        Requete SQL(Structured Query Language) : SELECT * FROM g(Game) WHERE g.title LIKE '%$word%'
         $resultats = $query->getArrayResult();
         return $resultats;
     }

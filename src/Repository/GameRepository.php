@@ -28,7 +28,7 @@ class GameRepository extends ServiceEntityRepository
             ->where('g.title LIKE :word')
             ->setParameter('word', '%'.$word.'%')
             ->getQuery();
-//        Requete SQL(Structured Query Language) : SELECT * FROM g(Game) WHERE g.title LIKE '%$word%'
+//        Requete SQL(Structured Query Language) : SELECT * FROM g(Game) WHERE title LIKE '%$word%'
         $resultats = $query->getArrayResult();
         return $resultats;
     }

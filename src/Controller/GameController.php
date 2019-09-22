@@ -36,8 +36,9 @@ class GameController extends AbstractController
      */
     public function gameSearch(GameRepository $gameRepository, PublisherRepository $publisherRepository, Request $request)
     {
-
+        //Je recupere la valeur de la requet Get et je l assigne a la wariable $word.
         $word = $request->query->get('title');
+        //J'appel la méthode findByWord qui se trouve dans ma class GameRepository
         $gameTitle = $gameRepository->findByWord($word);
 
         return $this->render('game/games_search.html.twig',

@@ -31,8 +31,7 @@ class AdminGameController extends AbstractController
      */
     public function form(Game $game = null, Request $request, EntityManagerInterface $entityManager)
     {
-//        Si ce n est un nouveau est un nouvelle article
-//        j 'instancie un l,entite Game
+//        Si ce n'est pas un nouveau Game je l'edite sinon j'en cree un nouveau.
         if (!$game){
             $game = new Game();
         }
@@ -42,7 +41,7 @@ class AdminGameController extends AbstractController
         $form->handleRequest($request);
 
         //Je verifie si la requet est remplie de donnees.
-        dump($request);
+//        dump($request);
 
         //Si le form et envoyer et valider
         if ($form->isSubmitted() && $form->isValid()) {

@@ -3,7 +3,7 @@ Game Rules a pour but de regrouper toutes les règles de jeux de société au f
 L’utilisateur pourra faire une recherche simplifier par titre de jeu. 
 La règle sera visible dans un nouvel onglet avec la possibilité de l'imprimer
 
-#Technologie:
+Technologie:
 
 Composer 1.9
 
